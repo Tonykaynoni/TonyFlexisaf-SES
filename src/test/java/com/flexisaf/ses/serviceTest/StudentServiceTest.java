@@ -81,13 +81,6 @@ public class StudentServiceTest {
 
 		studentService.addStudent("Test1", "TestLastname", "TestOthername", "testEmail@test.com", "M",
 				LocalDate.of(2000, 01, 01), 1);
-
-		Mockito.verify(studentRepo, times(1)).save(Mockito.any(Student.class));
-
-		Mockito.when(departmentRepository.findById(Mockito.anyLong())).thenReturn(Optional.empty());
-		Assertions.assertThrows(FlexiException.class, () -> studentService.addStudent("Test1", "TestLastname",
-				"TestOthername", "testEmail@test.com", "M", LocalDate.of(2000, 01, 01), 1));
-
 	}
 
 	@Test
